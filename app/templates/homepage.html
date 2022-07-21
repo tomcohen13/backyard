@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- jquery -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    
+    <!-- Unicons -->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+
+    <!-- Style CSS -->
+    <link rel="stylesheet" href="{{url_for('static', filename='homepage.css')}}" type="text/css">
+  
+
+    <!-- Scripts -->
+    <script type="text/javascript" src="{{url_for('static', filename='theme.js')}}"></script>
+    
+    <!-- Google Font -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source Code Pro:100,200,300,400,500">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Barlow: 100,200,300,400,800,900">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto Flex: 100,200,300,400,800,900">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=DM Sans">
+
+    <title>The Backyard</title>
+</head>
+<body style="--primary-color: var(--{{institution}})">
+    <header>
+        <script type="text/javascript" src="{{url_for('static', filename='bg-balls.js')}}"></script>
+    </header>
+    <!-- <div class="row h-100">
+        <div class="col-6">
+            <h1 class="display-1">THE</h1>
+        </div>
+        <div class="col-6">
+            <h1 class="display-1">BACKYARD</h1>
+            
+        </div>
+    </div> -->
+    <section class="home">
+
+      <div class="row h-100">
+        <!-- Main title and logo -->
+        <div class="col-3 d-flex justify-content-center align-items-center" id="mySidebar" style="width:20%">
+          <div class="sidebar d-flex flex-column my-3 align-items-center">
+            <!-- <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a> -->
+            
+            <div class="menu d-flex flex-column gap-1">
+
+              <div class="sidebar-item">
+                <span class="uil uil-apps"></span>
+                <h4 class="">Apps</h4>
+              </div>
+              <!-- <div class="sidebar-item">
+                <span class="uil uil-fire"></span>
+                <h4 class="">Trending</h4>
+              </div> -->
+              <div class="sidebar-item">
+                <span class="uil uil-arrow"></span>
+                <h4 class="">Developers </h4>
+              </div>
+              <!-- <div class="sidebar-item">
+                <span class="uil uil-arrow"></span>
+                <h4 class="">Ideas</h4>
+              </div> -->
+              <div class="sidebar-item">
+                <span class="uil uil-chat"></span>
+                <h4 class="">Forum</h4>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+        <div class="col d-flex align-items-center">
+          <div class="container">
+
+            <div class="apps">
+              <!-- {% for app in apps%}
+              <div class="card app" id={{app.name}}>
+                <img src="app.image" alt={{app.name}}>
+                <div class="app-info d-flex flex-column text-align-center">
+                  <h5 class="title">{{app.name}}</h5>
+                </div>
+              </div>
+              {% endfor %} -->
+              <div class="card app">
+                <img src="https://source.unsplash.com/random/600x600?summer" alt="">
+                <div class="app-info d-flex flex-column text-align-center">
+                  <h5 class="title">Summer</h5>
+                </div>
+              </div>
+              <div class="card app">
+                <img src="https://source.unsplash.com/random/600x600?plants" alt="">
+                <div class="app-info d-flex flex-column text-align-center">
+                  <h5 class="title">Plants</h5>
+                </div>
+              </div>
+              <div class="card app">
+                <img src="https://source.unsplash.com/random/600x600?sky" alt="">
+                <div class="app-info d-flex flex-column text-align-center">
+                  <h5 class="title">Sky</h5>
+                </div>
+              </div>
+              <div class="card app">
+                <img src="https://source.unsplash.com/random/600x600?nature" alt="">
+                <div class="app-info d-flex flex-column text-align-center">
+                  <h5 class="title">Nature</h5>
+                </div>
+              </div>
+              <div class="card app">
+                <img src="https://source.unsplash.com/random/600x600?blossom" alt="">
+                <div class="app-info d-flex flex-column text-align-center">
+                  <h5 class="title">Blossom</h5>
+                </div>
+              </div>
+              <div class="card app">
+                <img src="https://source.unsplash.com/random/600x600?ice" alt="">
+                <div class="app-info d-flex flex-column text-align-center">
+                  <h5 class="title">Ice</h5>
+                </div>
+              </div>
+              <!-- Scramble -->
+              <div class="card app locked">
+                <img src="/static/images/scramble-logo2.png" alt="">
+                <div class="app-info d-flex flex-column text-align-center">
+                  <h5 class="title">Scramble</h5>
+                  <p class="desc">Shoot your shot, stress-free.</p>
+                </div>
+              </div>
+
+              <div class="card">
+
+                <img src="https://source.unsplash.com/random/600x600?spring" alt="">
+                <div class="app-info d-flex flex-column text-align-center">
+                  <h5 class="title">Spring</h5>
+                </div>
+              </div>
+            </div>
+    
+
+          </div>
+        </div>
+        <div class="box logo d-flex align-items-center justify-content-center" style="">
+          <div class="straight" style="transform:rotate(45deg)">
+
+            <i class="uil uil-bars" style="color: var(--color-black); font-size: 28px; cursor: pointer;" onclick=openCloseNav()></i>
+          </div>
+        </div>
+        <div class="logo reveal" style="display: none">
+          <div class="revealleft">
+            <!-- <h3 class="">THE</h3> -->
+            <!-- <i class="uil uil-angle-double-left"></i> -->
+          </div>
+          <div class="revealright">
+              <!-- <h3 class="">BACKYARD</h3> -->
+              <!-- <i class="uil uil-angle-double-right"></i> -->
+          </div>
+          
+          
+        </div>
+      </div>
+      
+      <div class="footer row d-flex align-items-end" style="height:10%; position:absolute; bottom: 1vh; right: 1vw;">
+        <div class="logo d-flex flex-row align-items-center justify-content-end gap-3">
+          <a class="footer-links" id="aboutBtn" href="#">ABOUT</a>
+          <a class="footer-links" id="contactBtn" href="#">CONTACT</a>
+          <!-- <h5 class="" style="font-weight:100">x</h5> -->
+          <!-- <h5 class="institution" style="color:var(--primary-color)">{{institution | upper}}</h5> -->
+        </div>
+      </div>
+      <script>
+        $("#aboutBtn").click(function() {
+          $('html,body').animate({
+              scrollTop: $("#about-page").offset().top},
+              'medium');
+        });
+        $("#contactBtn").click(function() {
+          $('html,body').animate({
+              scrollTop: $("#contact-us").offset().top},
+              'fast');
+        });
+      </script>
+      <script>
+        function openCloseNav(){
+          sidebar = document.getElementById("mySidebar");
+          console.log(sidebar.style.width)
+          if (sidebar.style.width < "1%"){
+            openNav();
+          }
+          else{
+            closeNav();
+          }
+        }
+        function openNav() {
+          sidebar = document.getElementById("mySidebar")
+          sidebar.style.width = "20%";
+          sidebar.childNodes[1].style.opacity = "1"
+          document.getElementById("openBtn").style.opacity = "0";
+        }
+        
+        function closeNav() {
+  
+          sidebar = document.getElementById("mySidebar");
+          sidebar.style.width = "0%";
+          var nodes = sidebar.childNodes;
+          nodes[1].style.opacity = "0";
+          document.getElementById("openBtn").style.opacity = "1";
+        }
+      </script>
+    </section>
+    <section id="about-page" style="">
+      <!-- Canvas -->
+      <canvas class="orb-canvas"></canvas>
+      <div class="container text" style="flex-direction:column; gap:2rem;width:60%; text-align:center; justify-content:center;">
+        <h1 class="" style="color:black;font-weight:700;font-family:'Barlow', Courier, monospace">BY-STUDENTS. FOR-STUDENTS.</h1>
+        <p class="about-text">The Backyard is a hub for student entrepreneurship, helping promising apps see the light of day.</p>
+        <p class="about-text">Our Goals: 
+          <ul class="data-contnainer">
+            <li class="">Help Great Ideas Succeed</li>
+            <li class="">Foster On-Campus Innovation</li>
+            <li></li>
+          </ul>
+      </div>
+      <div class="huge-box bg-spring" id="the-box" style=""></div>
+      <!-- <div class="huge-box" id="backyard-box" style=""></div> -->
+    </section>
+    <section id="services" style="">
+      <div class="container text" style="flex-direction:column; gap:2rem;width:60%;">
+        <h1 class="" style="color:black;font-weight:700;font-family:'Barlow', Courier, monospace">Our Services.</h1>
+        <p class="about-text">We do the heavy-lifting so that you won't have to.</p>
+        <p class="about-text">
+          <ul>
+            <li>Exposure to Authenticated Users</li>
+            <li>Financial Support</li>
+            <li>Analytical Tools</li>
+            <li>Mentoriship</li>
+            <li>Hiring Opporunities</li>
+          </ul>
+          </p>
+      </div>
+      <!-- <div class="huge-box" id="the-box" style=""></div> -->
+      <!-- <div class="huge-box" id="backyard-box" style=""></div> -->
+    </section>
+
+    <section id="contact-us" style="flex-direction:column;justify-content:center;align-items:center;text-align:center;gap:2rem;">
+        <h1 style="color:black;font-weight:700;font-family:'Barlow', Courier, monospace">CONTACT US</h1>
+        <p class="about-text">info@bkyrd.com</p>
+    </section>
+
+    
+    
+</body>
+</html>
