@@ -14,6 +14,8 @@ from app.auth.forms import LoginForm, SignupForm
 # Import data models
 from app.auth.models import User
 
+from app.routes import *
+
 # Define the blueprint: 'auth', set its url prefix: app.url/auth
 auth = Blueprint('auth', __name__, url_prefix='/auth')
 
@@ -43,7 +45,7 @@ def signin():
 
             flash('Welcome %s' % user.name)
 
-            return redirect(url_for('home'))
+            return redirect(url_for('index'))
 
         flash('Mmmm not the password I got..!', 'error-message')
     
@@ -55,7 +57,7 @@ def signin():
 def signup():
     
     form = SignupForm(request.form)
-    print(form.data)
+
     if form.validate():
         
         ### Add another check: if the user is in the db but is unverified, allow to sign up. 
@@ -86,3 +88,7 @@ def signup():
         
 
     return render_template("auth/gate.html", revealed = True)
+
+@auth.route('/reset', methods = ["POST"])
+def reset_pwd():
+    pass
