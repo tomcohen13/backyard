@@ -7,7 +7,7 @@ BASE_DIR = os.path.abspath(os.path.dirname(__file__))
 
 # Define the database - we are working with
 # SQLite for this example
-SQLALCHEMY_DATABASE_URI = "postgresql://postgres:1234567890@localhost/backyard"
+SQLALCHEMY_DATABASE_URI = "postgresql://lastadbjcgewse:033b8517ddf23df84dcff7ed8e8bf6953e67f15e75b2a61ca35c5eded93bc842@ec2-3-223-169-166.compute-1.amazonaws.com:5432/d72ufh626ddk7p"
 DATABASE_CONNECT_OPTIONS = {}
 SQLALCHEMY_TRACK_MODIFICATIONS = False
 

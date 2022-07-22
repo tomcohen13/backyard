@@ -10,11 +10,13 @@ from app import db
 
 # Import module forms
 from app.auth.forms import LoginForm, SignupForm
+from app.auth.helper import *
 
 # Import data models
-from app.auth.models import User
+from app.models import Institution, User
 
 from app.routes import *
+
 
 # Define the blueprint: 'auth', set its url prefix: app.url/auth
 auth = Blueprint('auth', __name__, url_prefix='/auth')
@@ -67,14 +69,27 @@ def signup():
             
             return render_template("auth/gate.html", revealed = True)
 
+        institution_id = email_to_institution_id(form.email.data)
         
-        new_user = User(form.email.data, generate_password_hash(form.password.data))
+        name = scrape_name(form.email.data)
+
+        if not institution_id:
+            flash("Bummer, but your institution isn't in the Backyard yet. Let's change that!", category = "error-message")
+
+            return render_template("auth/gate.html", revealed = True)
+        
+        new_user = User(email = form.email.data, 
+                        password = generate_password_hash(form.password.data), 
+                        name = name,
+                        institution_id=institution_id,
+                        )
 
         if new_user.register():
 
             flash("Success! Check your inbox to verify your account", category = "success-message")
 
             return render_template("auth/gate.html", revealed = True)
+            
         else:
             flash("There was a problem signing you up. Try again later!", category = "error-message")
 

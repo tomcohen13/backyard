@@ -102,8 +102,8 @@ section {
 }
 
 .container{
-  height: 85%;
-  width: 80%;
+  height: 90%;
+  width: 90%;
 
   align-items: center;
   display: flex;
@@ -124,8 +124,8 @@ section {
   align-items: center;
   justify-content: center;
   padding: 15px;
-  width: 200px;
-  height: 200px;
+  width: 240px;
+  height: 240px;
   gap: 2vh;
   border: none;
   /* min-width: fit-content; */
@@ -133,7 +133,9 @@ section {
 }
 
 .card img{
-  width: 80%;
+  
+  max-height: 160px;
+  
   float: right;
   /* margin: 5px 0 5px 20px; */
   border-radius: 10%;

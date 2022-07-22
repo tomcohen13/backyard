@@ -1,7 +1,9 @@
-from optparse import TitledHelpFormatter
+from app.models import User
 from bs4 import BeautifulSoup
 from urllib.parse import urlencode
 import requests
+from app.models import Institution
+# from app.models import Institution
 
 import sys
 
@@ -53,3 +55,18 @@ def decompose_email(email : str) -> dict:
     institution = institution.split('.')[0]
 
     return {"uni": uni, "institution":institution}
+
+def email_to_institution_id(email) -> str:
+    email_code = decompose_email(email).get('institution')
+    institution = Institution.query.filter_by(email_code=email_code).first()
+    if institution:
+        return institution.id
+
+
+def scrape_name(email : str):
+    try:
+        info = get_student_info(decompose_email(email).get('uni'))
+        if info:
+            return info["name"]
+    except:
+        return None
