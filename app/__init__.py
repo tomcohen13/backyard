@@ -1,6 +1,6 @@
 # Import flask and template operators
 from flask import Flask, render_template
-
+import os
 # Import SQLAlchemy
 from flask_sqlalchemy import SQLAlchemy
 
@@ -9,6 +9,8 @@ app = Flask(__name__)
 
 # Configurations
 app.config.from_pyfile('../config.py')
+
+app.config["SQLALCHEMY_DATABASE_URI"] = os.environ["SQLALCHEMY_DATABASE_URI"]
 
 # Define the database object which is imported
 # by modules and controllers
