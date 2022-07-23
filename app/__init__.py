@@ -1,6 +1,11 @@
 # Import flask and template operators
 from flask import Flask, render_template
+
+# Import environment stuff
 import os
+from dotenv import load_dotenv
+load_dotenv()
+
 # Import SQLAlchemy
 from flask_sqlalchemy import SQLAlchemy
 

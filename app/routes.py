@@ -11,22 +11,22 @@ def index():
             uid = session["user_id"]
             user = User.query.filter_by(id=uid).first()
             inst = Institution.query.filter_by(id = user.institution_id).first()
-            return redirect(url_for("home", institution_code = inst.store_code))
+            return redirect(url_for("appstore", institution_code = inst.store_code))
         except:
             return redirect(url_for("gate"))
 
     return redirect(url_for("gate"))
 
 @app.route("/<institution_code>/home", methods=["GET", "POST"])
-def home(institution_code):
+def appstore(institution_code):
 
     try:
         uid = session["user_id"]
+        user = User.query.filter_by(id = uid).first()
 
     except:
         return redirect(url_for("gate"))
     
-    user = User.query.filter_by(id = uid).first()
     
     # Load apps
     # apps = db.universities.find_one({"page_code": institution})
@@ -34,3 +34,7 @@ def home(institution_code):
     return render_template("home.html", institution = institution_code,
                                         name = user.name, 
                                         profile_pic = user.profile_picture)
+
+@app.route("/about", methods = ["GET"])
+def about():
+    return render_template("about.html")

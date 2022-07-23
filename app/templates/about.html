@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- jquery -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    
+    <!-- Unicons -->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+
+    <!-- Style CSS -->
+    <link rel="stylesheet" href="{{url_for('static', filename='homepage.css')}}" type="text/css">
+  
+
+    <!-- Scripts -->
+    <script type="text/javascript" src="{{url_for('static', filename='theme.js')}}"></script>
+    
+    <!-- Google Font -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source Code Pro:100,200,300,400,500">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Barlow: 100,200,300,400,800,900">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto Flex: 100,200,300,400,800,900">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=DM Sans">
+
+    <title>The Backyard</title>
+</head>
+<body style="--primary-color: var(--{{institution}})">
+    <header>
+        <script type="text/javascript" src="{{url_for('static', filename='bg-balls.js')}}"></script>
+    </header>
+    <section id="about-page">
+      <!-- Canvas -->
+      <div class="container text" style="flex-direction:column; gap:2rem;width:60%; text-align:center; justify-content:center;">
+        <h1 class="" style="color:black;font-weight:700;font-family:'Barlow', Courier, monospace">BY-STUDENTS. FOR-STUDENTS.</h1>
+        <p class="about-text">The Backyard is a hub for student entrepreneurship, helping promising apps see the light of day.</p>
+        <p class="about-text">Our Mission: 
+          <ul class="data-contnainer">
+            <li class="">Help Great Ideas Succeed</li>
+            <li class="">Foster On-Campus Innovation</li>
+            <li></li>
+          </ul>
+      </div>
+      <div class="huge-box bg-spring" id="the-box"></div>
+      <!-- <div class="huge-box" id="backyard-box" style=""></div> -->
+    </section>
+    <section id="services">
+      <div class="container text" style="flex-direction:column; gap:2rem;width:60%;">
+        <h1 class="" style="color:black;font-weight:700;font-family:'Barlow', Courier, monospace">OUR SERVICES</h1>
+        <p class="about-text">We do the heavy-lifting so that you won't have to.</p>
+        <p class="about-text">
+          <ul>
+            <li>Exposure to Authenticated Users</li>
+            <li>Financial Support</li>
+            <li>Analytical Tools</li>
+            <li>Mentorship</li>
+            <li>Hiring Opporunities</li>
+          </ul>
+          </p>
+      </div>
+      <!-- <div class="huge-box" id="the-box" style=""></div> -->
+      <!-- <div class="huge-box" id="backyard-box" style=""></div> -->
+    </section>
+
+    <section id="contact-us" style="flex-direction:column;justify-content:center;align-items:center;text-align:center;gap:2rem;">
+        <h1 style="color:black;font-weight:700;font-family:'Barlow', Courier, monospace">CONTACT US</h1>
+        <p class="about-text">info@bkyrd.com</p>
+    </section>
+
+    
+    
+</body>
+</html>
