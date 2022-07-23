@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Backyard</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='index.css')}}" type="text/css">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+</head>
+<body class="d-flex align-items-center justify-content-center">
+    <form id="myForm" method="post" action="/admin/add_institution" enctype="multipart/form-data" style="transform:rotate(0deg);height:max-content; width: 20rem;position:inherit">
+        <div id="wrapper">
+            <div id="arrow"></div>
+            <label for="name">Institution Name</label>
+            <input id="name" name="name" type="text" placeholder="Name">
+            <label for="primary_color">Primary Color</label>
+            <input id="primary_color" name="primary_color" type="text" placeholder="Color">
+            <label for="store_code">Store Code</label>
+            <input id="store_code" name="store_code" type="text" placeholder="Store code">
+            <label for="email_code">Email Code</label>
+            <input id="email_code" name="email_code" type="text" placeholder="Email code">
+        </div>
+        <button type="submit" class="effect-5">
+          <span>
+            Add
+          </span>
+        </button>
+        {% with errors = get_flashed_messages(category_filter=["error-message"]) %}
+        {% if errors %}
+        <div>
+          {% for error in errors %}
+            <div class="alert alert-secondary" role="alert">
+              <!-- <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button> -->
+              <strong>{{error}}</strong>
+            </div>
+        {% endfor %}
+        </div>
+        {% endif %}
+        {% endwith %}
+      </form>
+    
+</body>
+</html>
