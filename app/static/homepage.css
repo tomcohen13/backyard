@@ -1,5 +1,7 @@
-@import url(https://fonts.googleapis.com/css?family=Raleway:700,800);
+@import url(https://fonts.googleapis.com/css?family=Raleway:600,700,800);
 @import url(https://fonts.googleapis.com/css?family=Barlow:100,200,300,400,500,600,700,800);
+@import url(https://fonts.googleapis.com/css?family=Nunito:700,800,900);
+
 
 :root{
     /* --primary-color: #dc143c; */
@@ -40,7 +42,7 @@ html,body{
     padding:0;
     margin:0;
     overflow:hidden;
-    font-family: "Raleway", sans-serif;
+    font-family: "Raleway", "Barlow", sans-serif;
 }
 section {
   min-height: 100vh;
@@ -54,6 +56,8 @@ section {
   transition: all 0.5s;
   border-right: 5px solid black;
   width: max(20%, 200px);
+  z-index: 10;
+  background-color: #ffffffcc;
 }
 .sidebar{
   transition: all 0.25s ease-out 0s;
@@ -159,7 +163,7 @@ section {
 .card .app-info .desc{
   opacity: 0;
   margin: 0;
-  font-family: "Helvetica";
+  font-family: "Nunito";
 }
 
 /* .locked{ */
