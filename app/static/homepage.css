@@ -154,11 +154,11 @@ section {
   font-family: "Helvetica";
 }
 
-.locked{
+/* .locked{ */
   /* opacity: 0.6;
   cursor: help; */
 
-}
+/* } */
 
 .reveal{
     width:7vh;
@@ -226,7 +226,7 @@ h1{font-size:3vw;margin:10px;text-align:center;}
 p{margin:0 30px;font-family:'Montserrat',sans-serif;color:grey;font-size:.8em;line-height:1.7em}
 
 .ball{width:10px;height:10px;border-radius:100%;position:absolute;bottom:20px;left:50%;background:#dc143c}
-#h1,#h3{position:absolute;bottom:-15px;width:300px;height:100%;z-index:100;pointer-events:none;-webkit-transform-origin:center bottom}
+#h1,#h3{position:absolute;bottom:-15px;width:300px;height:100%;z-index:100;pointer-events:none;-webkit-transform-origin:center bottom;transform-origin: center bottom;}
 /* 
 form{
     padding: 30px;
@@ -304,9 +304,6 @@ button {
       opacity: 1;
   }
 
- .footer{
-  
- }
  .footer-links{
   font-family: 'Barlow', Courier, monospace;
   font-weight: 400;

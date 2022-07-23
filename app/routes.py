@@ -13,9 +13,9 @@ def index():
             inst = Institution.query.filter_by(id = user.institution_id).first()
             return redirect(url_for("appstore", institution_code = inst.store_code))
         except:
-            return redirect(url_for("gate"))
+            return redirect(url_for("auth.gate"))
 
-    return redirect(url_for("gate"))
+    return redirect(url_for("auth.gate"))
 
 @app.route("/<institution_code>/home", methods=["GET", "POST"])
 def appstore(institution_code):
@@ -25,7 +25,7 @@ def appstore(institution_code):
         user = User.query.filter_by(id = uid).first()
 
     except:
-        return redirect(url_for("gate"))
+        return redirect(url_for("auth.gate"))
     
     
     # Load apps
