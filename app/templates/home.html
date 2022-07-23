@@ -49,10 +49,10 @@
     </div> -->
     <section class="home">
 
-      <div class="row h-100" style="MIN-HEIGHT: 100VH;">
+      <div class="row h-100 d-flex flex-nowrap" style="MIN-HEIGHT: 100VH; width:100%">
         <!-- Main title and logo -->
-        <div class="col-3 d-flex justify-content-center align-items-center" id="mySidebar" style="width:20%">
-          <div class="sidebar d-flex flex-column my-3 align-items-center">
+        <div class="col-2 d-flex justify-content-center align-items-center" id="mySidebar">
+          <div class="sidebar d-flex flex-column my-3 align-items-center" width = "">
             <!-- <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a> -->
             
             <div class="menu d-flex flex-column gap-1">
@@ -81,10 +81,10 @@
             
           </div>
         </div>
-        <div class="col d-flex align-items-center">
+        <div class="col-10 d-flex align-items-center">
           <div class="container">
 
-            <div class="apps">
+            <div class="apps" id="app-gallery">
               <!-- {% for app in apps%}
               <div class="card app" id={{app.name}}>
                 <img src="app.image" alt={{app.name}}>
@@ -154,9 +154,9 @@
           </div>
         </div>
         <div class="box logo d-flex align-items-center justify-content-center">
-          <div class="straight" style="transform:rotate(45deg)">
+          <div class="straight" style="transform:rotate(45deg)" onclick=openCloseNav()>
 
-            <i class="uil uil-bars" style="color: var(--color-black); font-size: 28px; cursor: pointer;" onclick=openCloseNav()></i>
+            <i class="uil uil-bars" style="color: var(--color-black); font-size: 28px; cursor: pointer;"></i>
           </div>
         </div>
         <div class="logo reveal" style="display: none">
@@ -175,7 +175,7 @@
       
       <div class="footer row d-flex align-items-end" style="height:10%; position:absolute; bottom: 1vh; right: 1vw;">
         <div class="logo d-flex flex-row align-items-center justify-content-end gap-3">
-          <a class="footer-links" id="aboutBtn" href="#">ABOUT</a>
+          <a class="footer-links" id="aboutBtn" href="/about">ABOUT</a>
           <a class="footer-links" id="contactBtn" href="#">CONTACT</a>
           <!-- <h5 class="" style="font-weight:100">x</h5> -->
           <!-- <h5 class="institution" style="color:var(--primary-color)">{{institution | upper}}</h5> -->
@@ -194,21 +194,20 @@
         });
       </script>
       <script>
+
         function openCloseNav(){
           sidebar = document.getElementById("mySidebar");
-          console.log(sidebar.style.width)
-          if (sidebar.style.width < "1%"){
-            openNav();
+          if (sidebar.childNodes[1].style.opacity == "" || sidebar.style.width >= "200px"){
+            closeNav();
           }
           else{
-            closeNav();
+            openNav();
           }
         }
         function openNav() {
-          sidebar = document.getElementById("mySidebar")
-          sidebar.style.width = "20%";
+          sidebar = document.getElementById("mySidebar");
+          sidebar.style.width = "calc(max(20%, 200px))";
           sidebar.childNodes[1].style.opacity = "1"
-          document.getElementById("openBtn").style.opacity = "0";
         }
         
         function closeNav() {
@@ -217,47 +216,10 @@
           sidebar.style.width = "0%";
           var nodes = sidebar.childNodes;
           nodes[1].style.opacity = "0";
-          document.getElementById("openBtn").style.opacity = "1";
         }
       </script>
     </section>
-    <section id="about-page">
-      <!-- Canvas -->
-      <div class="container text" style="flex-direction:column; gap:2rem;width:60%; text-align:center; justify-content:center;">
-        <h1 class="" style="color:black;font-weight:700;font-family:'Barlow', Courier, monospace">BY-STUDENTS. FOR-STUDENTS.</h1>
-        <p class="about-text">The Backyard is a hub for student entrepreneurship, helping promising apps see the light of day.</p>
-        <p class="about-text">Our Goals: 
-          <ul class="data-contnainer">
-            <li class="">Help Great Ideas Succeed</li>
-            <li class="">Foster On-Campus Innovation</li>
-            <li></li>
-          </ul>
-      </div>
-      <div class="huge-box bg-spring" id="the-box"></div>
-      <!-- <div class="huge-box" id="backyard-box" style=""></div> -->
-    </section>
-    <section id="services">
-      <div class="container text" style="flex-direction:column; gap:2rem;width:60%;">
-        <h1 class="" style="color:black;font-weight:700;font-family:'Barlow', Courier, monospace">OUR SERVICES</h1>
-        <p class="about-text">We do the heavy-lifting so that you won't have to.</p>
-        <p class="about-text">
-          <ul>
-            <li>Exposure to Authenticated Users</li>
-            <li>Financial Support</li>
-            <li>Analytical Tools</li>
-            <li>Mentorship</li>
-            <li>Hiring Opporunities</li>
-          </ul>
-          </p>
-      </div>
-      <!-- <div class="huge-box" id="the-box" style=""></div> -->
-      <!-- <div class="huge-box" id="backyard-box" style=""></div> -->
-    </section>
 
-    <section id="contact-us" style="flex-direction:column;justify-content:center;align-items:center;text-align:center;gap:2rem;">
-        <h1 style="color:black;font-weight:700;font-family:'Barlow', Courier, monospace">CONTACT US</h1>
-        <p class="about-text">info@bkyrd.com</p>
-    </section>
 
     
     
