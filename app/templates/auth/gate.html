@@ -16,11 +16,10 @@
 
     <!-- style -->
     <link rel="stylesheet" href="{{url_for('static', filename='index.css')}}" type="text/css">
-    <!-- <link rel="stylesheet" href="{{url_for('static', filename='index1.css')}}" type="text/css"> -->
-    <!-- <link rel="stylesheet" href="{{url_for('static', filename='index2.css')}}" type="text/css"> -->
-
+    
     <!-- scripts -->
     <script src="{{url_for('static', filename='gate.js')}}"></script>
+    <script type="module" src="{{url_for('static', filename='bg.js')}}"></script>
     
 
     <!-- Google Font -->
@@ -34,7 +33,8 @@
 </head>
 <body>
     <header>
-        <script type="text/javascript" src="{{url_for('static', filename='bg-balls.js')}}"></script>
+        <!-- <script type="text/javascript" src="{{url_for('static', filename='bg-balls.js')}}"></script> -->
+        <canvas class="orb-canvas"></canvas>
     </header>
 
     <main>

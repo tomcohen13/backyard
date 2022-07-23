@@ -32,6 +32,8 @@ class User(Base):
 
     profile_picture = db.Column(db.String(128))
 
+    # role            = db.Column(db.Integer, nullable = False) # {0: admin, 1: student user, 2: ...}
+
 
     # New instance instantiation procedure
     def __init__(self, email, password, name, institution_id, is_verified = False, profile_picture = ""):

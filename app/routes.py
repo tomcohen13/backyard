@@ -27,11 +27,13 @@ def appstore(institution_code):
     except:
         return redirect(url_for("auth.gate"))
     
-    
+    inst = Institution.query.filter_by(store_code = institution_code).first()
     # Load apps
     # apps = db.universities.find_one({"page_code": institution})
+    print(inst.primary_color)
     
     return render_template("home.html", institution = institution_code,
+                                        primary_color = inst.primary_color,
                                         name = user.name, 
                                         profile_pic = user.profile_picture)
 
