@@ -17,7 +17,6 @@ from app.models import Institution, User
 
 from app.routes import *
 
-
 # Define the blueprint: 'auth', set its url prefix: app.url/auth
 auth = Blueprint('auth', __name__, url_prefix='/auth')
 
@@ -44,8 +43,6 @@ def signin():
         if check_password_hash(user.password, form.password.data):
 
             session['user_id'] = user.id
-
-            flash('Welcome %s' % user.name)
 
             return redirect(url_for('index'))
 

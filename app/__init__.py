@@ -9,6 +9,9 @@ load_dotenv()
 # Import SQLAlchemy
 from flask_sqlalchemy import SQLAlchemy
 
+# Import Talisman
+from flask_talisman import Talisman
+
 # Define the WSGI application object
 app = Flask(__name__)
 
@@ -16,10 +19,14 @@ app = Flask(__name__)
 app.config.from_pyfile('../config.py')
 
 app.config["SQLALCHEMY_DATABASE_URI"] = os.environ["SQLALCHEMY_DATABASE_URI"]
+app.config["SECRET_KEY"] = os.environ["SECRET_KEY"]
+app.config["CSRF_SESSION_KEY"] = os.environ["CSRF_SESSION_KEY"]
 
 # Define the database object which is imported
 # by modules and controllers
 db = SQLAlchemy(app)
+
+Talisman(app, content_security_policy=None)
 
 # Sample HTTP error handling
 @app.errorhandler(404)
