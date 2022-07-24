@@ -88,8 +88,8 @@
             
           </div>
         </div>
-        <div class="col-10 d-flex align-items-center">
-          <div class="container">
+        <div class="col-10 d-flex align-items-center" id="mainColumn">
+          <div class="container" id="myContainer">
 
             <div class="apps" id="app-gallery">
               <!-- {% for app in apps%}
@@ -214,7 +214,8 @@
         function openNav() {
           sidebar = document.getElementById("mySidebar");
           sidebar.style.width = "calc(max(20%, 200px))";
-          sidebar.childNodes[1].style.opacity = "1"
+          sidebar.childNodes[1].style.opacity = "1";
+          document.getElementById("mainColumn").style.width = "80%";
         }
         
         function closeNav() {
@@ -223,6 +224,8 @@
           sidebar.style.width = "0%";
           var nodes = sidebar.childNodes;
           nodes[1].style.opacity = "0";
+          // document.getElementById("myContainer").style.width = "99%";
+          document.getElementById("mainColumn").style.width = "99%";
         }
       </script>
     </section>

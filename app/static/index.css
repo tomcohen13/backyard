@@ -146,6 +146,19 @@ form {
 
 input[type=radio] { display: none; }
 
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    transition: background-color 5000s ease-in-out 0s;
+    -webkit-text-fill-color: var(--box-color) !important;
+}
+input:-webkit-autofill::first-line{
+  font-size: 27px;
+  font-family: 'Raleway', sans-serif;
+}
+
+
 label {
   cursor: pointer;
   display: inline-block;

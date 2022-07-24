@@ -1,11 +1,10 @@
 # Import flask and template operators
-from flask import Flask, render_template
+from flask import Flask, render_template, session
 
 # Import environment stuff
 import os
 from dotenv import load_dotenv
 load_dotenv()
-from datetime import timedelta
 
 # Import SQLAlchemy
 from flask_sqlalchemy import SQLAlchemy
@@ -18,7 +17,7 @@ app = Flask(__name__)
 
 # Configurations
 app.config.from_pyfile('../config.py')
-app.permanent_session_lifetime = timedelta(minutes=60)
+
 app.config["SQLALCHEMY_DATABASE_URI"] = os.environ["SQLALCHEMY_DATABASE_URI"]
 app.config["SECRET_KEY"] = os.environ["SECRET_KEY"]
 app.config["CSRF_SESSION_KEY"] = os.environ["CSRF_SESSION_KEY"]

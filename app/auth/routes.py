@@ -43,7 +43,8 @@ def signin():
         if check_password_hash(user.password, form.password.data):
 
             session['user_id'] = user.id
-
+            session.permanent = True
+            
             return redirect(url_for('index'))
 
         flash('Mmmm not the password I got..!', 'error-message')
