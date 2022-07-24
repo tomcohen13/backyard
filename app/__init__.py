@@ -41,6 +41,10 @@ mail = Mail(app)
 def not_found(error):
     return render_template('404.html'), 404
 
+@app.errorhandler(403)
+def no(error):
+    return render_template('403.html'), 403
+
 # Import a module / component using its blueprint handler variable (mod_auth)
 from app.auth.routes import auth as auth_module
 from app.admin.routes import admin as admin_module

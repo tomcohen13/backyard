@@ -1,4 +1,4 @@
-from flask import render_template, url_for, redirect, session, request
+from flask import render_template, url_for, redirect, session, request, flash
 from app import app
 from app.auth import routes
 from app import db
@@ -27,14 +27,15 @@ def appstore(institution_code):
         inst = Institution.query.filter_by(store_code = institution_code).first()
         # Load apps
         # apps = db.universities.find_one({"page_code": institution})
-        
+
         return render_template("home.html", institution = {"code": institution_code,
-                                            "name":inst.name,
-                                            "color":inst.primary_color,
+                                            "name":inst.email_code,
+                                            "hue":inst.primary_color.split(".")[0],
                                             "logo": inst.logo},
                                             name = user.name, 
                                             profile_pic = user.profile_picture)
-    except:
+    except Exception as e:
+        flash("There was a problem signing you in. Try again later!", category="error-message")
         return redirect(url_for("auth.gate"))
     
     

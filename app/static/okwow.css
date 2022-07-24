@@ -125,16 +125,18 @@ section {
 .menu .sidebar-item h4{
   font-weight: 600;
   font-size: 1.25rem;
+  transition: all 0.5s;
 }
-.sidebar-item h4{
+.menu .sidebar-item h4{
   margin: 0;
 }
 .sidebar-item .uil{
-  font-size: 1.0rem;
+  font-size: 1.2rem;
+  font-weight: 600;
 }
 #small-logo{
   z-index: 11;
-
+  margin-right: 0.5rem;
 }
 .box{
   width: 4rem;
@@ -142,7 +144,7 @@ section {
   /* background-color: var(--color-black); */
   transform: rotate(315deg);
   position: absolute;
-  left: calc(5% - 2rem);
+  left: calc(3.5% - 2rem);
   top: 2vh;
   z-index: 10;
   border-radius: 0;

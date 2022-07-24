@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta id="my-data" color="{{primary_color}}">
+    <!-- <meta id="my-data" data-color="{{institution.hue}}"> -->
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" integrity="sha512-BNaRQnYJYiPSqHHDb58B0yaPfCu+Wgds8Gp/gU33kqBtgNS4tSPHuGibyoeqMV/TJlSKda6FXzoEyYGjTe+vXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <!-- jquery -->
@@ -28,7 +28,7 @@
 
     <!-- Scripts -->
     <script type="text/javascript" src="{{url_for('static', filename='theme.js')}}"></script>
-    <script>console.log("{{primary_color}}")</script>
+    <script>sessionStorage.setItem("primary_color", "{{institution.hue}}")</script>
     <script type="module" src="{{url_for('static', filename='bg.js')}}"></script>
     
     <!-- Google Font -->
@@ -78,7 +78,7 @@
 
               <div class="sidebar-item">
                 <span class="uil uil-apps"></span>
-                <h4 class="">Apps</h4>
+                <h4 class="sidebar-item-text">Apps</h4>
               </div>
               <!-- <div class="sidebar-item">
                 <span class="uil uil-fire"></span>
@@ -86,7 +86,7 @@
               </div> -->
               <div class="sidebar-item">
                 <span class="uil uil-arrow"></span>
-                <h4 class="">Developers </h4>
+                <h4 class="sidebar-item-text">Developers </h4>
               </div>
               <!-- <div class="sidebar-item">
                 <span class="uil uil-arrow"></span>
@@ -94,7 +94,7 @@
               </div> -->
               <div class="sidebar-item">
                 <span class="uil uil-chat"></span>
-                <h4 class="">Forum</h4>
+                <h4 class="sidebar-item-text">Forum</h4>
               </div>
             </div>
             
@@ -181,7 +181,7 @@
           <!-- <h5 class="institution" style="color:var(--primary-color)">{{institution | upper}}</h5> -->
         </div>
       </div>
-      <script>
+      <!-- <script>
         $("#aboutBtn").click(function() {
           $('html,body').animate({
               scrollTop: $("#about-page").offset().top},
@@ -192,12 +192,13 @@
               scrollTop: $("#contact-us").offset().top},
               'fast');
         });
-      </script>
+      </script> -->
       <script>
 
         function openCloseNav(){
           sidebar = document.getElementById("mySidebar");
-          if (sidebar.childNodes[1].style.opacity == "" || sidebar.style.width >= "200px"){
+          console.log(sidebar.style.width)
+          if (sidebar.style.width > "7%"){
             closeNav();
           }
           else{
@@ -209,18 +210,28 @@
           sidebar.style.width = "calc(max(20%, 200px))";
           sidebar.childNodes[1].style.opacity = "1";
           document.getElementById("mainColumn").style.width = "80%";
+          var nodes = document.querySelectorAll(".sidebar-item-text");
+          for (let i = 0; i < nodes.length; i++){
+            nodes[i].style.opacity = "1";
+            nodes[i].style.display = "block";
+          }
         }
         
         function closeNav() {
   
           sidebar = document.getElementById("mySidebar");
-          sidebar.style.width = "0%";
-          var nodes = sidebar.childNodes;
-          nodes[1].style.opacity = "0";
-          // document.getElementById("myContainer").style.width = "99%";
+          sidebar.style.width = "7%";
+          var nodes = document.querySelectorAll(".sidebar-item-text");
+          //console.log(document.querySelectorAll(".sidebar-item-text"))
+          document.getElementById("myContainer").style.width = "80%";
           document.getElementById("mainColumn").style.width = "99%";
-        }
-      </script>
+
+          for (let i = 0; i < nodes.length; i++){
+              nodes[i].style.opacity = "0";
+              nodes[i].style.display = "none";
+            }
+        }      
+        </script>
     </section>
 
 

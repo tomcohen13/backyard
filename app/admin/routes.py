@@ -24,7 +24,6 @@ def add():
     if request.method == "POST":
         
         form = AddInstitution(request.form)
-        print(form.data)
         if form.validate():
 
             new_inst = Institution(form.name.data, 
@@ -39,9 +38,15 @@ def add():
                 flash("Already registered!", 'error-message')
 
         flash_errors(form)
-
-    return render_template("admin/add_institution.html")
-
+        return "Added"
+    else:
+        try:
+            uid = session["uid"]
+            user = User.query.filter_by(id = uid).first()
+            # if user.role == "0":
+            return render_template("admin/add_institution.html")
+        except:
+            return redirect(url_for("auth.gate"))
 
 
 def flash_errors(form):
