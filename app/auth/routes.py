@@ -3,7 +3,7 @@ from flask import Blueprint, request, render_template, \
                   flash, g, session, redirect, url_for
 
 # Import password / encryption helper tools
-from werkzeug.security import check_password_hash, generate_password_hash
+from werkzeug.security import check_password_hash, generate_password_hash, gen_salt
 
 # Import the database object from the main app module
 from app import db
@@ -15,6 +15,9 @@ from app.auth.helper import *
 # Import data models
 from app.models import Institution, User
 
+# Import mail functions
+from app.mail import send_confirmation
+
 from app.routes import *
 
 # Define the blueprint: 'auth', set its url prefix: app.url/auth
@@ -22,7 +25,7 @@ auth = Blueprint('auth', __name__, url_prefix='/auth')
 
 @auth.route("/", methods=["GET"])
 def gate():
-    
+        
     return render_template("auth/gate.html")
 
 @auth.route('/signin', methods=['POST'])
@@ -40,14 +43,17 @@ def signin():
             flash("You need to sign up first!", 'error-message')
             return render_template("auth/gate.html", revealed = True)
 
-        if check_password_hash(user.password, form.password.data):
+        if not check_password_hash(user.password, form.password.data):
+            flash('Mmmm not the password I got..!', 'error-message')
+            return render_template("auth/gate.html", revealed = True) 
+        
+        if user.is_verified == True:
 
-            session['user_id'] = user.id
+            session['uid'] = user.id
             session.permanent = True
-            
+
             return redirect(url_for('index'))
 
-        flash('Mmmm not the password I got..!', 'error-message')
     
     flash("Can't seem to read that email...", 'error-message')
 
@@ -70,6 +76,8 @@ def signup():
         institution_id = email_to_institution_id(form.email.data)
         
         name = scrape_name(form.email.data)
+        if not name:
+            name = "__unspecified__"
 
         if not institution_id:
             flash("Bummer, but your institution isn't in the Backyard yet. Let's change that!", category = "error-message")
@@ -83,8 +91,10 @@ def signup():
                         )
 
         if new_user.register():
+            
+            send_confirmation(new_user)
 
-            flash("Success! Check your inbox to verify your account", category = "success-message")
+            flash("Awesome! Check your inbox to complete registration", category = "success-message")
 
             return render_template("auth/gate.html", revealed = True)
             

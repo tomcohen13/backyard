@@ -114,6 +114,18 @@
             </div>
             {% endif %}
             {% endwith %}
+            {% with successes = get_flashed_messages(category_filter=["success-message"]) %}
+            {% if successes %}
+            <div>
+              {% for message in successes %}
+                <div class="alert alert-success" role="alert">
+                  <!-- <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button> -->
+                  <strong>{{message}}</strong>
+                </div>
+            {% endfor %}
+            </div>
+            {% endif %}
+            {% endwith %}
           </form>
           
         </div>

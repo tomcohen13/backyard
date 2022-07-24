@@ -25,3 +25,15 @@ CSRF_ENABLED     = True
 # Session Lifetime
 
 PERMANENT_SESSION_LIFETIME =  timedelta(minutes=5)
+
+# Email Settings
+MAIL_SERVER = "smtp.office365.com"
+MAIL_PORT = 587
+MAIL_USE_TLS = True
+MAIL_USE_SSL = False
+MAIL_USERNAME = os.environ['MAIL_USERNAME']
+MAIL_PASSWORD = os.environ['MAIL_PASSWORD']
+MAIL_KEY = os.environ['MAIL_KEY']
+MAIL_SUPPRESS_SEND = False
+MAIL_DEBUG = True
+MAIL_SALT = os.environ['MAIL_SALT']

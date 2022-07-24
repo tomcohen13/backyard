@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Raleway:600,700,800);
+@import url(https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,600,700,800);
 @import url(https://fonts.googleapis.com/css?family=Barlow:100,200,300,400,500,600,700,800);
 @import url(https://fonts.googleapis.com/css?family=Nunito:700,800,900);
 
@@ -54,6 +54,7 @@ html,body{
     overflow:hidden;
     font-family: "Raleway", "Barlow", sans-serif;
     background: var(--bg-gradient);
+    font-weight: 700;
 }
 
 .orb-canvas {
@@ -65,7 +66,24 @@ html,body{
   pointer-events: none;
   z-index: 0;
 }
-
+#storeHeader{
+  width: 100%;
+  height: 10%;
+  position:absolute;
+  /* width:40%; */
+  bottom: 0;
+  /* left: 33vw; */
+  /* background-color:rgba(246, 246, 246, 0.7); */
+  background-color: transparent;
+  gap:1rem;
+  padding: 20px;
+  border-radius: 15px;
+  z-index: 11;
+  align-items: center;
+}
+#storeHeader > h2{
+  margin:0;
+}
 section {
   min-height: 100vh;
   width: 100%;
@@ -105,7 +123,7 @@ section {
 }
 
 .menu .sidebar-item h4{
-  font-weight: 500;
+  font-weight: 600;
   font-size: 1.25rem;
 }
 .sidebar-item h4{
@@ -114,7 +132,10 @@ section {
 .sidebar-item .uil{
   font-size: 1.0rem;
 }
+#small-logo{
+  z-index: 11;
 
+}
 .box{
   width: 4rem;
   height: 4rem;
@@ -175,6 +196,7 @@ section {
     border-radius: 15%;
     box-shadow: 0 0 14px -7px grey;
     background: #fffffca1;
+    
   /* min-width: fit-content; */
   /* min-height: fit-content; */
 }
@@ -189,11 +211,15 @@ section {
   transition: all 0.5s;
 
 }
+.app h5{
+  font-weight: 600;
+}
 
 .card .app-info{
   display: flex;
   text-align: center;
   transition: all 0.5s;
+  
 }
 .card .app-info .desc{
   opacity: 0;
@@ -208,17 +234,17 @@ section {
 /* } */
 
 .reveal{
-    width:7vh;
-    height:7vh;
+    width:5vh;
+    height:5vh;
     background:#fff;
     /* margin:10% auto 0; */
     /* max-width:96%;position:relative; */
     transform: rotate(315deg);
     transform-origin: center;
     /* overflow:hidden; */
-    position: absolute;
-    top: 5vh;
-    left: 5vw;
+    /* position: absolute; */
+    /* bottom: 5vh; */
+    /* left: 5vw; */
 }
 .revealleft,.revealright{
     width:50%;
@@ -353,10 +379,11 @@ button {
       opacity: 1;
   }
 
- .footer-links{
+ .footer-links {
   font-family: 'Barlow', Courier, monospace;
   font-weight: 400;
   color: #111111;
+  font-size: 1.2rem;
  }
  .footer-links:hover{
   color: #111111;
@@ -480,3 +507,5 @@ li{
     opacity: 1;
     cursor: pointer;
   }
+
+  

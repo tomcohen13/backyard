@@ -5,7 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta id="my-data" color="{{primary_color}}">
-
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" integrity="sha512-BNaRQnYJYiPSqHHDb58B0yaPfCu+Wgds8Gp/gU33kqBtgNS4tSPHuGibyoeqMV/TJlSKda6FXzoEyYGjTe+vXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <!-- jquery -->
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
@@ -55,6 +56,17 @@
         </div>
     </div> -->
     <section class="home">
+      <div id="storeHeader"class="store-info d-flex justify-content-center">
+        <div id="small-logo" class="reveal">
+          <div class="revealleft">
+          </div>
+          <div class="revealright">
+          </div>
+        </div>
+        <h2 style="font-weight:300">X</h2>
+        <!-- <img src="{{institution.name}}" style="height:5vh;width:5vw;"> -->
+        <h2 class="store-name" style="font-weight:400">{% set university = institution.name.split(' ')[0] %}{{ university | upper }}</h2>
+      </div>
 
       <div class="row h-100 d-flex flex-nowrap" style="MIN-HEIGHT: 100VH; width:100%">
         <!-- Main title and logo -->
@@ -147,14 +159,6 @@
                   <p class="desc">Shoot your shot, stress-free.</p>
                 </div>
               </div>
-
-              <div class="card">
-
-                <img src="https://source.unsplash.com/random/600x600?spring" alt="">
-                <div class="app-info d-flex flex-column text-align-center">
-                  <h5 class="title">Spring</h5>
-                </div>
-              </div>
             </div>
     
 
@@ -166,18 +170,7 @@
             <i class="uil uil-bars" style="color: var(--color-black); font-size: 28px; cursor: pointer;"></i>
           </div>
         </div>
-        <div class="logo reveal" style="display: none">
-          <div class="revealleft">
-            <!-- <h3 class="">THE</h3> -->
-            <!-- <i class="uil uil-angle-double-left"></i> -->
-          </div>
-          <div class="revealright">
-              <!-- <h3 class="">BACKYARD</h3> -->
-              <!-- <i class="uil uil-angle-double-right"></i> -->
-          </div>
-          
-          
-        </div>
+        
       </div>
       
       <div class="footer row d-flex align-items-end" style="height:10%; position:absolute; bottom: 1vh; right: 1vw;">

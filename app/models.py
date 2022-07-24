@@ -1,5 +1,4 @@
 from uuid import uuid4
-
 from sqlalchemy import ForeignKey
 from app import db
 
@@ -60,10 +59,18 @@ class User(Base):
             print(e)
             return False
 
-# Helper table
+# Helper Tables:
+
+# Institutions-Apps 
 appstores = db.Table('appstores',
     db.Column('app_id', db.String(64), db.ForeignKey('apps.id'), primary_key=True),
     db.Column('institution_id', db.String(64), db.ForeignKey('institutions.id'), primary_key=True)
+)
+
+# Apps-Tags
+tags = db.Table('apptags',
+    db.Column('app_id', db.String(64), db.ForeignKey('apps.id'), primary_key=True),
+    db.Column('tag_id', db.String(64), db.ForeignKey('tags.id'), primary_key=True)
 )
 
 
@@ -78,6 +85,8 @@ class Institution(Base):
     # nicknames       = db.Column(db.Array(db.String(64))) # add later
     store_code       = db.Column(db.String(10), unique = True, nullable = False)
     email_code      = db.Column(db.String(32), unique = True, nullable = False)
+    logo            = db.Column(db.String(256))
+    
     # Relationships
     users       = db.relationship('User', backref='user', lazy=True)
 
@@ -122,3 +131,6 @@ class App(Base):
         self.long_desc = long
         self.locked = locked
 
+class Tag(Base):
+    __tablename__ = 'tags'
+    name = db.Column(db.String(32), unique=True)
