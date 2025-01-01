@@ -9,7 +9,7 @@ from app import db, mail
 # Import data models
 from app.models import Institution, User
 
-from app.routes import *
+from app.routes_old import *
 
 # Define the blueprint: 'mail', set its url prefix: [APP_URL]/mail
 mail = Blueprint('mail', __name__, url_prefix='/mail')
