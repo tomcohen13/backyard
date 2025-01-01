@@ -1,39 +1,23 @@
-from datetime import timedelta
-
-# Statement for enabling the development environment
-DEBUG = True
-
-# Define the application directory
 import os
-BASE_DIR = os.path.abspath(os.path.dirname(__file__))  
+import secrets
 
-# Define the database - we are working with
-# SQLite for this example
+class Config:
+    SECRET_KEY = os.getenv("SECRET_KEY", secrets.token_urlsafe(32))
+    UPLOAD_FOLDER = "static/uploads"
+    MAX_CONTENT_LENGTH = 2 * 1024 * 1024  # Limit uploads to 2MB
 
-DATABASE_CONNECT_OPTIONS = {}
-SQLALCHEMY_TRACK_MODIFICATIONS = False
 
-# Application threads. A common general assumption is
-# using 2 per available processor cores - to handle
-# incoming requests using one and performing background
-# operations using the other.
-THREADS_PER_PAGE = 2
+class DevelopmentConfig(Config):
+    DEBUG = True
+    FLASK_ENV = "development"
 
-# Enable protection agains *Cross-site Request Forgery (CSRF)*
-CSRF_ENABLED     = True
 
-# Session Lifetime
+class ProductionConfig(Config):
+    DEBUG = False
+    FLASK_ENV = "production"
+    SESSION_COOKIE_SECURE = True
+    REMEMBER_COOKIE_SECURE = True
+    SERVER_NAME = os.getenv("SERVER_NAME", "lalala.lalala")
 
-PERMANENT_SESSION_LIFETIME =  timedelta(minutes=5)
-
-# Email Settings
-MAIL_SERVER = "smtp.office365.com"
-MAIL_PORT = 587
-MAIL_USE_TLS = True
-MAIL_USE_SSL = False
-MAIL_USERNAME = os.environ['MAIL_USERNAME']
-MAIL_PASSWORD = os.environ['MAIL_PASSWORD']
-MAIL_KEY = os.environ['MAIL_KEY']
-MAIL_SUPPRESS_SEND = False
-MAIL_DEBUG = True
-MAIL_SALT = os.environ['MAIL_SALT']
+    if not os.getenv("SECRET_KEY"):
+        raise ValueError("SECRET_KEY environment variable is not set in production!")
