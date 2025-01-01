@@ -1,13 +1,14 @@
-# Import flask dependencies
+"""Routes for the authentication blueprint"""
 from flask import render_template
 
 from . import auth
 
-# @auth.route("/", methods=["GET"])
-# def gate():
-#     return render_template("auth/gate.html")
 
-@auth.route('/login', methods=["GET", "POST"])
+@auth.route('/', methods=["GET"])
+def gate():
+    return render_template("auth/gate.html")
+
+@auth.route('/login', methods=["POST"])
 def login():
     return render_template("auth/gate.html")
 

@@ -6,7 +6,10 @@ from app import create_app
 load_dotenv()
 
 # Determine the configuration to use
-env_name = os.getenv('FLASK_ENV', 'default')
+env_name = os.getenv('FLASK_ENV', 'development').lower()
+
+if env_name not in ["development", "production", "testing"]:
+    raise ValueError(f"Invalid FLASK_ENV value: {env_name}")
 
 # Create the app
 app = create_app(env_name)
