@@ -13,7 +13,7 @@ from app.admin.forms import AddInstitution
 # Import data models
 from app.models import Institution
 
-from app.routes import *
+from app.routes_old import *
 
 # Define the blueprint: 'auth', set its url prefix: app.url/auth
 admin = Blueprint('admin', __name__, url_prefix='/admin')
