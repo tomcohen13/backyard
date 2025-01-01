@@ -17,7 +17,7 @@ class ProductionConfig(Config):
     FLASK_ENV = "production"
     SESSION_COOKIE_SECURE = True
     REMEMBER_COOKIE_SECURE = True
-    SERVER_NAME = os.getenv("SERVER_NAME", "lalala.lalala")
+    SERVER_NAME = os.getenv("SERVER_NAME", "the-backyard.herokuapp.com")
 
     if not os.getenv("SECRET_KEY"):
         raise ValueError("SECRET_KEY environment variable is not set in production!")
