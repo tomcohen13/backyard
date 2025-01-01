@@ -1,1 +1,8 @@
-<h1>Nothing here.</h1>
+{% extends "error_base.html" %}
+
+{% block title %}404 - Page Not Found{% endblock %}
+
+{% block content %}
+<h1>Oops! Looks like you wandered too far.<h1>
+<h2>But hey, why not <a href="/">head back home</a> and try again?</h2>
+{% endblock %}
