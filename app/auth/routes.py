@@ -1,20 +1,27 @@
-# Import flask dependencies
-from flask import render_template
+"""Routes for the authentication blueprint"""
+from flask import flash, redirect, render_template, url_for
 
 from . import auth
 
-# @auth.route("/", methods=["GET"])
-# def gate():
-#     return render_template("auth/gate.html")
 
-@auth.route('/login', methods=["GET", "POST"])
-def login():
+def flash_error():
+    flash("There was an error, please try again later", "error-message")
+
+@auth.route('/', methods=["GET"])
+def gate():
     return render_template("auth/gate.html")
+
+@auth.route('/signin', methods=["POST"])
+def signin():
+    flash_error()
+    return redirect(url_for("auth.gate"))
 
 @auth.route('/signup', methods = ["POST"])
 def signup():
-    return render_template("auth/gate.html")
+    flash_error()
+    return redirect(url_for("auth.gate"))
 
 @auth.route('/reset', methods = ["POST"])
-def reset_pwd():
-    return render_template("auth/gate.html")
+def reset():
+    flash_error()
+    return redirect(url_for("auth.gate"))

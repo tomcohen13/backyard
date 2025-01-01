@@ -1,3 +1,4 @@
+from datetime import timedelta
 import os
 import secrets
 
@@ -5,6 +6,7 @@ class Config:
     SECRET_KEY = os.getenv("SECRET_KEY", secrets.token_urlsafe(32))
     UPLOAD_FOLDER = "static/uploads"
     MAX_CONTENT_LENGTH = 2 * 1024 * 1024  # Limit uploads to 2MB
+    PERMANENT_SESSION_LIFETIME = timedelta(hours=1)
 
 
 class DevelopmentConfig(Config):
@@ -18,6 +20,5 @@ class ProductionConfig(Config):
     SESSION_COOKIE_SECURE = True
     REMEMBER_COOKIE_SECURE = True
     SERVER_NAME = os.getenv("SERVER_NAME", "the-backyard.herokuapp.com")
-
-    if not os.getenv("SECRET_KEY"):
+    if not os.getenv("SECRET_KEY") and os.getenv("FLASK_ENV") == "production":
         raise ValueError("SECRET_KEY environment variable is not set in production!")

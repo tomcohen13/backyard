@@ -1,10 +1,5 @@
 # Import flask and template operators
-from flask import Flask, render_template, session
-
-# Import environment stuff
-from dotenv import load_dotenv
-load_dotenv()
-
+from flask import Flask
 
 # Define the WSGI application object
 def create_app(env_name: str) -> Flask:
@@ -12,7 +7,6 @@ def create_app(env_name: str) -> Flask:
 
     # Configurations
     app.config.from_object(f"config.{env_name.capitalize()}Config")
-    print(f"Using config: {env_name.capitalize()}Config")
 
     # Import a module / component using its blueprint handler variable (mod_auth)
     from .auth import auth as auth_blueprint
