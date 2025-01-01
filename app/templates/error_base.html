@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Error{% endblock %}</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #000;
+            color: #fff;
+            font-family: 'Inter', sans-serif;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            font-size: 1.2rem;
+            margin: 0;
+        }
+
+        .rotated-square {
+            position: absolute;
+            width: 30vh;
+            height: 30vh;
+            background-color: #fff;
+            transform: rotate(45deg);
+            top: 50%;
+            right: -75px;
+            transition: transform 0.3s ease;
+        }
+
+        .rotated-square:hover {
+            transform: rotate(0deg) translateX(-50px);
+        }
+
+        .container {
+            z-index: 10;
+            position: relative;
+        }
+
+        a {
+            color: #fff;
+            text-decoration: underline;
+            font-weight: bold;
+        }
+
+        a:hover {
+            color: #bbb;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        {% block content %}
+        {% endblock %}
+    </div>
+    <div class="rotated-square"></div>
+</body>
+</html>
