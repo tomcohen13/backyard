@@ -13,12 +13,12 @@ def gate():
 
 @auth.route('/signin', methods=["POST"])
 def signin():
-    flash_error()
+    flash("Invalid credentials 🤷", "error-message")
     return redirect(url_for("auth.gate"))
 
 @auth.route('/signup', methods = ["POST"])
 def signup():
-    flash_error()
+    flash("We're currently not accepting new users. Try again later!", "error-message")
     return redirect(url_for("auth.gate"))
 
 @auth.route('/reset', methods = ["POST"])
