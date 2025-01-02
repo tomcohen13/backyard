@@ -15,10 +15,11 @@
 
     <!-- style -->
     <link rel="stylesheet" href="{{url_for('static', filename='index.css')}}" type="text/css">
+    <link rel="stylesheet" href="{{url_for('static', filename='orbs.css')}}" type="text/css">
     
     <!-- scripts -->
     <script src="{{url_for('static', filename='gate.js')}}"></script>
-    <script type="module" src="{{url_for('static', filename='bg.js')}}"></script>
+    <!-- <script type="module" src="{{url_for('static', filename='bg.js')}}"></script> -->
     
 
     <!-- Google Font -->
@@ -32,12 +33,12 @@
 </head>
 <body>
     <header>
-        <!-- <script type="text/javascript" src="{{url_for('static', filename='bg-balls.js')}}"></script> -->
-        <canvas class="orb-canvas"></canvas>
     </header>
-
+    
     <main>
-        <div class="reveal" >
+        <!-- Canvas for orbs animation -->
+        <canvas class="orbs-canvas" id="orbsCanvas"></canvas>
+        <div class="reveal content" >
           <div class="revealleft" onmouseover="$('.revealleft,.revealright').toggleClass('revealed');">
             <h1 class="display-1">THE</h1>
             <!-- <i class="uil uil-angle-double-left"></i> -->
@@ -106,6 +107,14 @@
     <div class="footer about m-3">
       <a href="/about" style="text-decoration: none; color: black;">ABOUT</p>
     </div>
+    <script type="text/javascript" src="../../static/orbs.js"></script>
+    <script>
+        // Initialize the orbs animation
+        document.addEventListener('DOMContentLoaded', () => {
+            const canvas = document.getElementById('orbsCanvas');
+            new OrbsAnimation(canvas);
+        });
+    </script>
     
 </body>
 </html>
